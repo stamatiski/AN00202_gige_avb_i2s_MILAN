@@ -17,6 +17,22 @@
 #include "smi.h"
 #include "audio_buffering.h"
 
+// === BEGIN: Feature Macro Toggles and Headers ===
+#define SUPPORT_AAF   1
+#define SUPPORT_MILAN 1
+#define SUPPORT_CRF   1
+
+#if SUPPORT_AAF
+#include "aaf_stream.h"
+#endif
+#if SUPPORT_MILAN
+#include "milan.h"
+#endif
+#if SUPPORT_CRF
+#include "crf_stream.h"
+#endif
+// === END: Feature Macro Toggles and Headers ===
+
 // Ports and clocks used by the application
 on tile[0]: otp_ports_t otp_ports0 = OTP_PORTS_INITIALIZER; // Ports are hardwired to internal OTP for reading
                                                             // MAC address and serial number

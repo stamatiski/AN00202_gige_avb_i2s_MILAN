@@ -37,16 +37,14 @@ XCC_FLAGS_main.xc = $(XCC_FLAGS) -falways-inline -O3
 USED_MODULES = lib_tsn(>=7.0.0) lib_i2s(>=2.0.1)
 
 #=============================================================================
-# Additional source files for AAF, Milan, and CRF features
-# Add these files to the SRC variable or equivalent to ensure they are compiled.
+# Explicitly list all application sources in the src directory.
+# Edit this list as you add/remove files from your app.
+# The XMOS build system will use this if defined.
 
-# If you have a line like SRCS or SOURCE_FILES, add the new files:
-# Example:
-# SRCS = main.xc src/aaf_stream.c src/milan.c src/crf_stream.c
-
-# If not, the XMOS make system will find .c files in INCLUDE_DIRS automatically.
-# To be explicit, add:
-SOURCE_FILES = main.xc src/aaf_stream.c src/milan.c src/crf_stream.c
+SOURCE_FILES = src/main.xc \
+               src/aaf_stream.c \
+               src/milan.c \
+               src/crf_stream.c
 
 #=============================================================================
 # The following part of the Makefile includes the common build infrastructure
